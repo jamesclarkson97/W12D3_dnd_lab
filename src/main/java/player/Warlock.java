@@ -27,7 +27,7 @@ public class Warlock extends Player implements Spellcaster {
     }
 
     public String castSpell(String spell) {
-        return "Warlock casts " + spell;
+        return spells.contains(spell) ? "Warlock casts " + spell : "Warlock doesn't know that spell";
     }
 
     public void changeCreature(String creature) {

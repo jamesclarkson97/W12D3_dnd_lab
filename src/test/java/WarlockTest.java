@@ -47,6 +47,11 @@ public class WarlockTest {
     }
 
     @Test
+    public void cannotCastSpellIfNotInList() {
+        assertEquals("Warlock doesn't know that spell", warlock.castSpell("Fireball"));
+    }
+
+    @Test
     public void canChangeCreature() {
         warlock.changeCreature("Cat");
         assertEquals("Cat", warlock.getCreature());
