@@ -5,11 +5,12 @@ import room.Room;
 import java.util.ArrayList;
 
 public abstract class Player {
-    private int healthPoints;
+    protected int healthPoints;
     protected String weapon;
     protected ArrayList<String> spells;
     protected Room currentRoom;
     private int loot;
+    protected int damageResistance;
 
     public Player(int healthPoints) {
         this.healthPoints = healthPoints;
@@ -47,5 +48,15 @@ public abstract class Player {
             collectTreasure();
         }
         currentRoom = new Room();
+    }
+
+    public void takeDamage() {
+        int damageTaken = currentRoom.getEnemy().getDamage();
+        int modifiedDamage = damageTaken - this.damageResistance;
+        if (modifiedDamage < 0) {
+            modifiedDamage = 0;
+        }
+        this.healthPoints -= modifiedDamage;
+        System.out.println("Your current health is " + this.healthPoints);
     }
 }

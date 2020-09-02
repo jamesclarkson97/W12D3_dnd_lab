@@ -6,6 +6,7 @@ public class Dwarf extends Player implements Melee {
     public Dwarf(int healthPoints, String weapon) {
         super(healthPoints);
         this.weapon = weapon;
+        this.damageResistance = 1;
     }
 
     public String fight() {
@@ -19,6 +20,7 @@ public class Dwarf extends Player implements Melee {
     @Override
     public void fightEnemy() {
         System.out.println(fight());
+        takeDamage();
         System.out.println("Dwarf has killed the " + currentRoom.getEnemy().getName());
     }
 }

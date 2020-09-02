@@ -12,6 +12,7 @@ public class Warlock extends Player implements Spellcaster {
         super(healthPoints);
         this.spells = new ArrayList<String>(){{add(spell);}};
         this.creature = "Dragon";
+        this.damageResistance = 0;
     }
 
     public String getCreature() {
@@ -37,6 +38,7 @@ public class Warlock extends Player implements Spellcaster {
     @Override
     public void fightEnemy() {
         System.out.println(castSpell("Eldritch Blast"));
+        takeDamage();
         System.out.println("Warlock has killed the " + currentRoom.getEnemy().getName());
     }
 }

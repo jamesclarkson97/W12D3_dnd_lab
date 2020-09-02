@@ -11,6 +11,7 @@ public class Cleric extends Player {
         this.healingItems = new HashMap<String, Integer>() {{
             put("Potion", 5);
         }};
+        this.damageResistance = -1;
     }
 
     public HashMap<String, Integer> getHealingItems() {
@@ -46,6 +47,8 @@ public class Cleric extends Player {
 
     @Override
     public void fightEnemy() {
-        System.out.println("Cleric has run away from the " + currentRoom.getEnemy().getName());
+        System.out.println("The Cleric is running away from the " + currentRoom.getEnemy().getName());
+        takeDamage();
+        System.out.println("The Cleric has escaped successfully!");
     }
 }

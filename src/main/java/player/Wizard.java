@@ -12,6 +12,7 @@ public class Wizard extends Player implements Spellcaster {
         super(healthPoints);
         this.spells = new ArrayList<String>() {{add(spell);}};
         this.creature = "Ogre";
+        this.damageResistance = -1;
     }
 
 
@@ -38,6 +39,7 @@ public class Wizard extends Player implements Spellcaster {
     @Override
     public void fightEnemy() {
         System.out.println(castSpell("Fireball"));
+        takeDamage();
         System.out.println("Wizard has killed the " + currentRoom.getEnemy().getName());
     }
 }
