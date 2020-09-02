@@ -57,6 +57,6 @@ public abstract class Player {
             modifiedDamage = 0;
         }
         this.healthPoints -= modifiedDamage;
-        System.out.println("Your current health is " + this.healthPoints);
+        System.out.println("You take damage! Your current health is " + this.healthPoints);
     }
 }
