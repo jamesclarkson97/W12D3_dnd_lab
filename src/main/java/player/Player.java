@@ -9,7 +9,7 @@ public abstract class Player {
     protected String weapon;
     protected ArrayList<String> spells;
     protected Room currentRoom;
-    private int loot;
+    protected int loot;
     protected int damageResistance;
 
     public Player(int healthPoints) {
@@ -47,7 +47,7 @@ public abstract class Player {
         } else {
             collectTreasure();
         }
-        currentRoom = new Room();
+        if (this.healthPoints > 0) currentRoom = new Room();
     }
 
     public void takeDamage() {
