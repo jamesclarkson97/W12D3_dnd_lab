@@ -27,4 +27,9 @@ public class RoomTest {
     public void startsNotCompleted() {
         assertFalse(room.getCompleted());
     }
+
+    @Test
+    public void hasContents() {
+        assertNotNull(room.getContents());
+    }
 }

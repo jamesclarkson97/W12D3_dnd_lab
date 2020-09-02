@@ -33,4 +33,10 @@ public class Warlock extends Player implements Spellcaster {
     public void changeCreature(String creature) {
         this.creature = creature;
     }
+
+    @Override
+    public void fightEnemy() {
+        System.out.println(castSpell("Eldritch Blast"));
+        System.out.println("Warlock has killed the " + currentRoom.getEnemy().getName());
+    }
 }

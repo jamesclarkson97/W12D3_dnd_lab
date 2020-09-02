@@ -56,4 +56,12 @@ public class WarlockTest {
         warlock.changeCreature("Cat");
         assertEquals("Cat", warlock.getCreature());
     }
+
+    @Test
+    public void canPlay() {
+        warlock.completeRoom();
+        warlock.completeRoom();
+        warlock.completeRoom();
+        warlock.completeRoom();
+    }
 }

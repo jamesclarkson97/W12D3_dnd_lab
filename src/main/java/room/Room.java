@@ -6,11 +6,13 @@ public class Room {
     private int treasure;
     private EnemyType enemy;
     private boolean completed;
+    private String contents;
 
     public Room() {
         this.treasure = randomTreasureAmount();
         this.enemy = randomEnemy();
         this.completed = false;
+        this.contents = selectContents();
     }
 
     public int getTreasure() {
@@ -25,6 +27,10 @@ public class Room {
         return completed;
     }
 
+    public void changeCompleted() {
+        completed = true;
+    }
+
     public int randomTreasureAmount() {
         int max = 100;
         int min = 5;
@@ -35,5 +41,21 @@ public class Room {
     public EnemyType randomEnemy() {
         int pick = new Random().nextInt(EnemyType.values().length);
         return EnemyType.values()[pick];
+    }
+
+    public String selectContents() {
+        String treasure = "treasure";
+        String enemy = "an enemy";
+        Random random = new Random();
+        int coinFlip = random.ints(0, 2).findFirst().getAsInt();
+        return coinFlip == 0 ? treasure : enemy;
+    }
+
+    public String getContents() {
+        return contents;
+    }
+
+    public String whatsInTheRoom() {
+        return "There is " + this.contents + "in here!";
     }
 }

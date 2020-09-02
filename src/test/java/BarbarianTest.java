@@ -33,4 +33,14 @@ public class BarbarianTest {
         barbarian.changeWeapon("Great Sword");
         assertEquals("Great Sword", barbarian.getWeapon());
     }
+
+    @Test
+    public void canPlay() {
+        barbarian.completeRoom();
+        barbarian.completeRoom();
+        barbarian.completeRoom();
+        barbarian.completeRoom();
+    }
+
+
 }

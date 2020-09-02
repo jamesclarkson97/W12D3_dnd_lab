@@ -56,5 +56,12 @@ public class WizardTest {
         assertEquals("Cat", wizard.getCreature());
     }
 
+    @Test
+    public void canPlay() {
+        wizard.completeRoom();
+        wizard.completeRoom();
+        wizard.completeRoom();
+        wizard.completeRoom();
+    }
 
 }

@@ -34,4 +34,10 @@ public class Wizard extends Player implements Spellcaster {
     public void changeCreature(String creature) {
         this.creature = creature;
     }
+
+    @Override
+    public void fightEnemy() {
+        System.out.println(castSpell("Fireball"));
+        System.out.println("Wizard has killed the " + currentRoom.getEnemy().getName());
+    }
 }

@@ -33,4 +33,12 @@ public class KnightTest {
         knight.changeWeapon("Great Sword");
         assertEquals("Great Sword", knight.getWeapon());
     }
+
+    @Test
+    public void canPlay() {
+        knight.completeRoom();
+        knight.completeRoom();
+        knight.completeRoom();
+        knight.completeRoom();
+    }
 }

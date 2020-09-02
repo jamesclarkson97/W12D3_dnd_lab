@@ -62,4 +62,13 @@ public class ClericTest {
         assertEquals("Cleric doesn't have any Bandage", cleric.useHealingItem("Bandage"));
     }
 
+
+    @Test
+    public void canPlay() {
+        cleric.completeRoom();
+        cleric.completeRoom();
+        cleric.completeRoom();
+        cleric.completeRoom();
+    }
+
 }

@@ -16,4 +16,10 @@ public class Barbarian extends Player implements Melee {
     public void changeWeapon(String weapon) {
         this.weapon = weapon;
     }
+
+    @Override
+    public void fightEnemy() {
+        System.out.println(fight());
+        System.out.println("Barbarian has killed the " + currentRoom.getEnemy().getName());
+    }
 }

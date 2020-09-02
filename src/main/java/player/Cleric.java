@@ -43,4 +43,9 @@ public class Cleric extends Player {
             return "Cleric doesn't have any " + item;
         }
     }
+
+    @Override
+    public void fightEnemy() {
+        System.out.println("Cleric has run away from the " + currentRoom.getEnemy().getName());
+    }
 }

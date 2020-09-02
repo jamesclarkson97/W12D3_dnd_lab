@@ -32,4 +32,12 @@ public class DwarfTest {
         dwarf.changeWeapon("Great Sword");
         assertEquals("Great Sword", dwarf.getWeapon());
     }
+
+    @Test
+    public void canPlay() {
+        dwarf.completeRoom();
+        dwarf.completeRoom();
+        dwarf.completeRoom();
+        dwarf.completeRoom();
+    }
 }
