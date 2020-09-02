@@ -21,4 +21,15 @@ public class DwarfTest {
     public void hasWeapon() {
         assertEquals("Axe", dwarf.getWeapon());
     }
+
+    @Test
+    public void canFight() {
+        assertEquals("Dwarf is fighting", dwarf.fight());
+    }
+
+    @Test
+    public void canChangeWeapon() {
+        dwarf.changeWeapon("Great Sword");
+        assertEquals("Great Sword", dwarf.getWeapon());
+    }
 }
