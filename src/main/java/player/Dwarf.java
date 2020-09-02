@@ -21,6 +21,10 @@ public class Dwarf extends Player implements Melee {
     public void fightEnemy() {
         System.out.println(fight());
         takeDamage();
-        System.out.println("Dwarf has killed the " + currentRoom.getEnemy().getName());
+        if (healthPoints <= 0) {
+            System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
+        } else {
+            System.out.println("Dwarf has killed the " + currentRoom.getEnemy().getName());
+        }
     }
 }

@@ -40,6 +40,10 @@ public class Wizard extends Player implements Spellcaster {
     public void fightEnemy() {
         System.out.println(castSpell("Fireball"));
         takeDamage();
-        System.out.println("Wizard has killed the " + currentRoom.getEnemy().getName());
+        if (healthPoints <= 0) {
+            System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
+        } else {
+            System.out.println("Wizard has killed the " + currentRoom.getEnemy().getName());
+        }
     }
 }

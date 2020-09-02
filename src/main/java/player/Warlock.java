@@ -39,6 +39,10 @@ public class Warlock extends Player implements Spellcaster {
     public void fightEnemy() {
         System.out.println(castSpell("Eldritch Blast"));
         takeDamage();
-        System.out.println("Warlock has killed the " + currentRoom.getEnemy().getName());
+        if (healthPoints <= 0) {
+            System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
+        } else {
+            System.out.println("Warlock has killed the " + currentRoom.getEnemy().getName());
+        }
     }
 }

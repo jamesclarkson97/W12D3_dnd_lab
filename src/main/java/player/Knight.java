@@ -22,6 +22,10 @@ public class Knight extends Player implements Melee {
     public void fightEnemy() {
         System.out.println(fight());
         takeDamage();
-        System.out.println("Knight has killed the " + currentRoom.getEnemy().getName());
+        if (healthPoints <= 0) {
+            System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
+        } else {
+            System.out.println("Knight has killed the " + currentRoom.getEnemy().getName());
+        }
     }
 }

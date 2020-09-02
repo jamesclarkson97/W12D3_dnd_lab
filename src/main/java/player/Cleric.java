@@ -49,6 +49,10 @@ public class Cleric extends Player {
     public void fightEnemy() {
         System.out.println("The Cleric is running away from the " + currentRoom.getEnemy().getName());
         takeDamage();
-        System.out.println("The Cleric has escaped successfully!");
+        if (healthPoints <= 0) {
+            System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
+        } else {
+            System.out.println("The Cleric has escaped successfully!");
+        }
     }
 }
