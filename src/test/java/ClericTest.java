@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import player.Cleric;
 
 import java.util.HashMap;
 
@@ -54,6 +55,11 @@ public class ClericTest {
             put("Potion", 4);
         }};
         assertEquals(expected, cleric.getHealingItems());
+    }
+
+    @Test
+    public void cannotUseHealingItemNotInHashMap() {
+        assertEquals("Cleric doesn't have any Bandage", cleric.useHealingItem("Bandage"));
     }
 
 }
