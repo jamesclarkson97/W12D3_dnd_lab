@@ -1,6 +1,7 @@
 import player.Dwarf;
 import org.junit.Before;
 import org.junit.Test;
+import weapon.WeaponType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,7 +10,7 @@ public class DwarfTest {
 
     @Before
     public void before() {
-        dwarf = new Dwarf(30, "Axe");
+        dwarf = new Dwarf(30);
     }
 
     @Test
@@ -29,7 +30,7 @@ public class DwarfTest {
 
     @Test
     public void canChangeWeapon() {
-        dwarf.changeWeapon("Great Sword");
+        dwarf.changeWeapon(WeaponType.GREAT_SWORD);
         assertEquals("Great Sword", dwarf.getWeapon());
     }
 

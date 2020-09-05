@@ -1,17 +1,17 @@
 package room;
 
+import weapon.WeaponType;
+
 import java.util.Random;
 
 public class Room {
     private int treasure;
     private EnemyType enemy;
-    private boolean completed;
     private String contents;
 
     public Room() {
         this.treasure = randomTreasureAmount();
         this.enemy = randomEnemy();
-        this.completed = false;
         this.contents = selectContents();
     }
 
@@ -21,14 +21,6 @@ public class Room {
 
     public EnemyType getEnemy() {
         return enemy;
-    }
-
-    public boolean getCompleted() {
-        return completed;
-    }
-
-    public void changeCompleted() {
-        completed = true;
     }
 
     public int randomTreasureAmount() {
@@ -56,6 +48,15 @@ public class Room {
     }
 
     public String whatsInTheRoom() {
-        return "There is " + this.contents + "in here!";
+        if(this.contents == "treasure") {
+            return "There is " + this.contents + " in here!";
+        } else {
+            return "Oh no! There is a " + this.enemy.getName() + " in here!";
+        }
+    }
+
+    public WeaponType getItem() {
+        int pick = new Random().nextInt(WeaponType.values().length);
+        return WeaponType.values()[pick];
     }
 }

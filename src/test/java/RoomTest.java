@@ -2,7 +2,6 @@ import org.junit.Before;
 import org.junit.Test;
 import room.Room;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 public class RoomTest {
@@ -21,11 +20,6 @@ public class RoomTest {
     @Test
     public void hasEnemy() {
         assertNotNull(room.getEnemy());
-    }
-
-    @Test
-    public void startsNotCompleted() {
-        assertFalse(room.getCompleted());
     }
 
     @Test

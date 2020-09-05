@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import player.Barbarian;
+import weapon.WeaponType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,7 +11,7 @@ public class BarbarianTest {
 
     @Before
     public void before() {
-        barbarian = new Barbarian(40, "Club");
+        barbarian = new Barbarian(40);
     }
 
     @Test
@@ -30,17 +31,17 @@ public class BarbarianTest {
 
     @Test
     public void canChangeWeapon() {
-        barbarian.changeWeapon("Great Sword");
+        barbarian.changeWeapon(WeaponType.GREAT_SWORD);
         assertEquals("Great Sword", barbarian.getWeapon());
     }
 
-    @Test
-    public void canPlay() {
-        barbarian.completeRoom();
-        barbarian.completeRoom();
-        barbarian.completeRoom();
-        barbarian.completeRoom();
-    }
+//    @Test
+//    public void canPlay() {
+//        barbarian.completeRoom();
+//        barbarian.completeRoom();
+//        barbarian.completeRoom();
+//        barbarian.completeRoom();
+//    }
 
 
 }

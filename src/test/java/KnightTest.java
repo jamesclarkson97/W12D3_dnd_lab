@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import player.Knight;
+import weapon.WeaponType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,7 +11,7 @@ public class KnightTest {
 
     @Before
     public void before() {
-        knight = new Knight(50, "Sword");
+        knight = new Knight(50);
     }
 
     @Test
@@ -30,7 +31,7 @@ public class KnightTest {
 
     @Test
     public void canChangeWeapon() {
-        knight.changeWeapon("Great Sword");
+        knight.changeWeapon(WeaponType.GREAT_SWORD);
         assertEquals("Great Sword", knight.getWeapon());
     }
 

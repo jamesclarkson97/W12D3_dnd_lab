@@ -1,12 +1,14 @@
 package player;
 
 import room.Room;
+import weapon.WeaponType;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public abstract class Player {
     protected int healthPoints;
-    protected String weapon;
+    protected WeaponType weapon;
     protected ArrayList<String> spells;
     protected Room currentRoom;
     protected int loot;
@@ -22,8 +24,12 @@ public abstract class Player {
         return this.healthPoints;
     }
 
+    public void endGame() {
+        this.healthPoints = 0;
+    }
+
     public String getWeapon() {
-        return this.weapon;
+        return this.weapon.getName();
     }
 
     public ArrayList<String> getSpells() {
@@ -41,13 +47,31 @@ public abstract class Player {
 
     public abstract void fightEnemy();
 
+    public void pickRoom() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("There is a room to your left and your right. Which one do you choose?");
+        scanner.nextLine();
+        completeRoom();
+    }
+
     public void completeRoom() {
+        System.out.println(currentRoom.whatsInTheRoom());
         if(currentRoom.getContents() == "an enemy") {
             fightEnemy();
         } else {
             collectTreasure();
         }
-        if (this.healthPoints > 0) currentRoom = new Room();
+        if (this.healthPoints > 0) {
+            System.out.println("Do you wish to delve deeper into the dungeon?");
+            Scanner scanner = new Scanner(System.in);
+            String playerChoice = scanner.nextLine();
+            if (playerChoice.equalsIgnoreCase("yes")) {
+                currentRoom = new Room();
+            } else {
+                endGame();
+                System.out.println("You leave with " + getLoot() + " gold pieces. Until next time...");
+            }
+        }
     }
 
     public void takeDamage() {
