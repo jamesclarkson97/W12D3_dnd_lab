@@ -21,6 +21,12 @@ public class Barbarian extends Player implements Melee {
         this.weapon = weapon;
     }
 
+    public void doDamage() {
+        int damage = this.weapon.getDamage();
+        currentRoom.getEnemy().takeDamage(damage);
+        System.out.println("You do " + this.weapon.getDamage() + " damage to the " + currentRoom.getEnemy().getName());
+    }
+
     @Override
     public void fightEnemy() {
         Scanner scanner = new Scanner(System.in);
@@ -29,19 +35,32 @@ public class Barbarian extends Player implements Melee {
         String fightChoice = scanner.nextLine();
         if(fightChoice.equalsIgnoreCase("yes")) {
             System.out.println(fight());
-            takeDamage();
-            if (healthPoints <= 0) {
-                System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
-            } else {
-                System.out.println("You have killed the " + currentRoom.getEnemy().getName());
-                WeaponType roomItem = currentRoom.getWeapon();
-                System.out.println("You find a " + roomItem.getName() + ". Use this weapon instead?");
-                String weaponChoice = scanner.nextLine();
-                if(weaponChoice.equalsIgnoreCase("yes")) {
-                    changeWeapon(roomItem);
-                    System.out.println("You have equipped the " + roomItem.getName());
+
+            while (currentRoom.getEnemy().getHealth() > 0) {
+                takeDamage();
+                if (healthPoints <= 0) {
+                    System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
+                } else {
+                    doDamage();
+                    System.out.println("Do you wish to escape this fight?");
+                    String leaveFight = scanner.nextLine();
+                    if (leaveFight.equalsIgnoreCase("yes")) {
+                        System.out.println("You run away");
+                        break;
+                    }
                 }
             }
+
+            System.out.println("You have killed the " + currentRoom.getEnemy().getName());
+
+            WeaponType roomItem = currentRoom.getWeapon();
+            System.out.println("You find a " + roomItem.getName() + ". Use this weapon instead?");
+            String weaponChoice = scanner.nextLine();
+            if(weaponChoice.equalsIgnoreCase("yes")) {
+                changeWeapon(roomItem);
+                System.out.println("You have equipped the " + roomItem.getName());
+            }
+
         } else {
             System.out.println("You run away");
         }
