@@ -1,10 +1,14 @@
 package behaviours;
 
+import room.EnemyType;
+import weapon.SpellType;
+
 public interface Spellcaster {
-//
-//    public void addSpell(String spell);
-//    public void removeSpell(String spell);
-////    public String castSpell(String spell);
-//    public String getCreature();
-//    public void changeCreature(String creature);
+
+    public void addSpell(SpellType spell);
+    public void removeSpell(SpellType spell);
+    public String castSpell(SpellType spell);
+    public String getCreature();
+    public void changeCreature(EnemyType creature);
+    public String useCreature();
 }

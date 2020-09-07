@@ -30,17 +30,17 @@ public class Quest {
                 dwarf.pickRoom();
             }
             } else if (className.equalsIgnoreCase("Warlock")) {
-            Warlock warlock = new Warlock(20);
+            Warlock warlock = new Warlock(30);
             while (warlock.getHealthPoints() > 0) {
                 warlock.pickRoom();
             }
             } else if (className.equalsIgnoreCase("Wizard")) {
-            Wizard wizard = new Wizard(15);
+            Wizard wizard = new Wizard(25);
             while (wizard.getHealthPoints() > 0) {
                 wizard.pickRoom();
             }
             } else if (className.equalsIgnoreCase("Cleric")) {
-            Cleric cleric = new Cleric(20);
+            Cleric cleric = new Cleric(35);
             while (cleric.getHealthPoints() > 0) {
                 cleric.pickRoom();
             }

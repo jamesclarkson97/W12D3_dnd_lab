@@ -1,6 +1,7 @@
 package player;
 
 import behaviours.Spellcaster;
+import room.EnemyType;
 import weapon.SpellType;
 
 import java.util.ArrayList;
@@ -8,13 +9,13 @@ import java.util.Scanner;
 
 public class Wizard extends Player implements Spellcaster {
 
-    private String creature;
+    private EnemyType creature;
 
     public Wizard(int healthPoints) {
         super(healthPoints);
         this.spells = new ArrayList<SpellType>() {{add(SpellType.RAY_OF_FROST);}};
-        this.creature = "Ogre";
-        this.damageResistance = -1;
+        this.creature = EnemyType.DRAGON;
+        this.damageResistance = 0;
     }
 
 
@@ -31,10 +32,14 @@ public class Wizard extends Player implements Spellcaster {
     }
 
     public String getCreature() {
-        return creature;
+        return creature.getName();
     }
 
-    public void changeCreature(String creature) {
+    public String useCreature() {
+        return "Your " + creature.getName() + " attacks the enemy " + currentRoom.getEnemy().getName() + "!";
+    }
+
+    public void changeCreature(EnemyType creature) {
         this.creature = creature;
     }
 
@@ -44,22 +49,32 @@ public class Wizard extends Player implements Spellcaster {
         System.out.println("You currently have " + this.healthPoints + " health points remaining.");
         System.out.println("Do you fight the " + currentRoom.getEnemy().getName() + "?");
         String fightChoice = scanner.nextLine();
+
         if(fightChoice.equalsIgnoreCase("yes")) {
-            System.out.println("Which spell would you like to use? " + getSpells());
-            String spellChoice = scanner.nextLine();
-            SpellType actualSpell = SpellType.checkSpell(spellChoice);
-            System.out.println(castSpell(actualSpell));
+            System.out.println("Use your creature or cast a spell?");
+            String weaponChoice = scanner.nextLine();
+
+            if(weaponChoice.equalsIgnoreCase("Spell")) {
+                System.out.println("Which spell would you like to use? " + getSpells());
+                String spellChoice = scanner.nextLine();
+                SpellType actualSpell = SpellType.checkSpell(spellChoice);
+                System.out.println(castSpell(actualSpell));
+            } else {
+                System.out.println(useCreature());
+            }
+
             takeDamage();
             if (healthPoints <= 0) {
                 System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
             } else {
                 System.out.println("You have killed the " + currentRoom.getEnemy().getName());
+
                 SpellType roomItem = currentRoom.getSpell();
                 System.out.println("You find a scroll of " + roomItem.getName() + ". Add this to your spell book?");
                 String addChoice = scanner.nextLine();
                 if(addChoice.equalsIgnoreCase("yes")) {
                     addSpell(roomItem);
-                    System.out.println("You have learned the " + roomItem.getName());
+                    System.out.println("You have learned the " + roomItem.getName() + " spell");
                 }
             }
         } else {
