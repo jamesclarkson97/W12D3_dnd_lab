@@ -79,9 +79,10 @@ public abstract class Player {
         int damageTaken = currentRoom.getEnemy().getDamage();
         int modifiedDamage = damageTaken - this.damageResistance;
         if (modifiedDamage < 0) {
-            modifiedDamage = 0;
+            System.out.println("You take no damage! Your current health is " + this.healthPoints);
+        } else {
+            this.healthPoints -= modifiedDamage;
+            System.out.println("You take damage! Your current health is " + this.healthPoints);
         }
-        this.healthPoints -= modifiedDamage;
-        System.out.println("You take damage! Your current health is " + this.healthPoints);
     }
 }
