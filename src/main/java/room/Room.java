@@ -1,5 +1,6 @@
 package room;
 
+import weapon.SpellType;
 import weapon.WeaponType;
 
 import java.util.Random;
@@ -55,8 +56,13 @@ public class Room {
         }
     }
 
-    public WeaponType getItem() {
+    public WeaponType getWeapon() {
         int pick = new Random().nextInt(WeaponType.values().length);
         return WeaponType.values()[pick];
+    }
+
+    public SpellType getSpell() {
+        int pick = new Random().nextInt(SpellType.values().length);
+        return SpellType.values()[pick];
     }
 }

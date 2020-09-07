@@ -30,19 +30,19 @@ public class Quest {
                 dwarf.pickRoom();
             }
             } else if (className.equalsIgnoreCase("Warlock")) {
-            Warlock warlock = new Warlock(20, "Eldritch Blast");
+            Warlock warlock = new Warlock(20);
             while (warlock.getHealthPoints() > 0) {
-                warlock.completeRoom();
+                warlock.pickRoom();
             }
             } else if (className.equalsIgnoreCase("Wizard")) {
-            Wizard wizard = new Wizard(15, "Fireball");
+            Wizard wizard = new Wizard(15);
             while (wizard.getHealthPoints() > 0) {
-                wizard.completeRoom();
+                wizard.pickRoom();
             }
             } else if (className.equalsIgnoreCase("Cleric")) {
             Cleric cleric = new Cleric(20);
             while (cleric.getHealthPoints() > 0) {
-                cleric.completeRoom();
+                cleric.pickRoom();
             }
             } else {
                 System.out.println("That's not a class!");

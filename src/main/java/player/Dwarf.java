@@ -33,7 +33,7 @@ public class Dwarf extends Player implements Melee {
                 System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
             } else {
                 System.out.println("You have killed the " + currentRoom.getEnemy().getName());
-                WeaponType roomItem = currentRoom.getItem();
+                WeaponType roomItem = currentRoom.getWeapon();
                 System.out.println("You find a " + roomItem.getName() + ". Use this weapon instead?");
                 String weaponChoice = scanner.nextLine();
                 if(weaponChoice.equalsIgnoreCase("yes")) {

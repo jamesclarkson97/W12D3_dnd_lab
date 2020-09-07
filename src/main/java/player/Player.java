@@ -1,6 +1,7 @@
 package player;
 
 import room.Room;
+import weapon.SpellType;
 import weapon.WeaponType;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 public abstract class Player {
     protected int healthPoints;
     protected WeaponType weapon;
-    protected ArrayList<String> spells;
+    protected ArrayList<SpellType> spells;
     protected Room currentRoom;
     protected int loot;
     protected int damageResistance;
@@ -32,7 +33,7 @@ public abstract class Player {
         return this.weapon.getName();
     }
 
-    public ArrayList<String> getSpells() {
+    public ArrayList<SpellType> getSpells() {
         return this.spells;
     }
 
