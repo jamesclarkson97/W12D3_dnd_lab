@@ -26,7 +26,4 @@ public enum EnemyType {
 
     public int getHealth() {return this.health;}
 
-    public void takeDamage(int damage) {
-        this.health -= damage;
-    }
 }

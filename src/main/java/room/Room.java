@@ -9,11 +9,13 @@ public class Room {
     private int treasure;
     private EnemyType enemy;
     private String contents;
+    private int enemyHealth;
 
     public Room() {
         this.treasure = randomTreasureAmount();
         this.enemy = randomEnemy();
         this.contents = selectContents();
+        this.enemyHealth = this.enemy.getHealth();
     }
 
     public int getTreasure() {
@@ -22,6 +24,14 @@ public class Room {
 
     public EnemyType getEnemy() {
         return enemy;
+    }
+
+    public int getEnemyHealth() {
+        return enemyHealth;
+    }
+
+    public void enemyTakeDamage(int damage) {
+        this.enemyHealth -= damage;
     }
 
     public int randomTreasureAmount() {

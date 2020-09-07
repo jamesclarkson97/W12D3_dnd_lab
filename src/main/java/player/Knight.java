@@ -17,6 +17,12 @@ public class Knight extends Player implements Melee {
         return "You are fighting the " + currentRoom.getEnemy().getName() + " using your " + this.weapon.getName();
     }
 
+    public void doDamage() {
+        int damage = this.weapon.getDamage();
+        currentRoom.enemyTakeDamage(damage);
+        System.out.println("You do " + this.weapon.getDamage() + " damage to the " + currentRoom.getEnemy().getName());
+    }
+
     public void changeWeapon(WeaponType weapon) {
         this.weapon = weapon;
     }

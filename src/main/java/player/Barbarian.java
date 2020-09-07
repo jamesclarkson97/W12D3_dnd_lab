@@ -23,7 +23,7 @@ public class Barbarian extends Player implements Melee {
 
     public void doDamage() {
         int damage = this.weapon.getDamage();
-        currentRoom.getEnemy().takeDamage(damage);
+        currentRoom.enemyTakeDamage(damage);
         System.out.println("You do " + this.weapon.getDamage() + " damage to the " + currentRoom.getEnemy().getName());
     }
 
@@ -36,17 +36,19 @@ public class Barbarian extends Player implements Melee {
         if(fightChoice.equalsIgnoreCase("yes")) {
             System.out.println(fight());
 
-            while (currentRoom.getEnemy().getHealth() > 0) {
+            while (currentRoom.getEnemyHealth() > 0) {
                 takeDamage();
                 if (healthPoints <= 0) {
                     System.out.println("You have died! Your total loot was " + getLoot() + " gold pieces");
                 } else {
                     doDamage();
-                    System.out.println("Do you wish to escape this fight?");
-                    String leaveFight = scanner.nextLine();
-                    if (leaveFight.equalsIgnoreCase("yes")) {
-                        System.out.println("You run away");
-                        break;
+                    if (currentRoom.getEnemyHealth() > 0) {
+                        System.out.println("Do you wish to escape this fight?");
+                        String leaveFight = scanner.nextLine();
+                        if (leaveFight.equalsIgnoreCase("yes")) {
+                            System.out.println("You run away");
+                            break;
+                        }
                     }
                 }
             }
