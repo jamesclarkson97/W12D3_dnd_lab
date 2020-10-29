@@ -24,7 +24,7 @@ public class Barbarian extends Player implements Melee {
     public void doDamage() {
         int damage = this.weapon.getDamage();
         currentRoom.enemyTakeDamage(damage);
-        System.out.println("You do " + this.weapon.getDamage() + " damage to the " + currentRoom.getEnemy().getName());
+        System.out.println("You do " + damage + " damage to the " + currentRoom.getEnemy().getName());
     }
 
     @Override
